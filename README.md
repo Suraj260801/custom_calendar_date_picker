@@ -1,39 +1,49 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# custom_calendar_date_picker
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+`CustomCalendarDatePicker` is a customizable calendar date picker widget for Flutter.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+ - `dialog` and `bottomsheet` view modes
+ - can select only year, month or date.
+ - can select a date
+ - can customize visuals, dimentions, opening position
+ - can restrict date range selection
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+To use this package, add custom_calendar_date_picker as a dependency in your pubspec.yaml file.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Minimal example:
 
 ```dart
-const like = 'sample';
+       DateTime? date = await showCustomCalendarDatePicker(
+                              context: context,
+                              selectedDate: DateTime.now(),
+                        );
 ```
 
-## Additional information
+Custom settings:
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+            ElevatedButton(
+              onPressed: () async {
+                DateTime? date = await showCustomCalendarDatePicker(
+                  minWidth: 300,
+                  viewMode: CalendarDatePickerViewMode.dialog,
+                  context: context,
+                  selectedDate: DateTime.now(),
+                  firstDate: DateTime.now().add(Duration(days: -1)),
+                  lastDate: DateTime.now().add(Duration(days: 365)),
+                );
+
+                setState(() {
+                  selectedDate = date;
+                });
+              },
+              child: Text('Select Date'),
+            ),
+```
