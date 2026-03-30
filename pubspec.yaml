@@ -1,7 +1,7 @@
 name: custom_calendar_date_picker
 description: A customizable calendar date picker widget for Flutter.
 version: 0.0.1
-homepage:
+homepage: https://github.com/Suraj260801/custom_calendar_date_picker.git
 
 environment:
   sdk: ^3.9.2
